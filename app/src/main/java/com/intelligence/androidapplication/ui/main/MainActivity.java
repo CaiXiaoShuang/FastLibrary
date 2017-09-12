@@ -2,8 +2,10 @@ package com.intelligence.androidapplication.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.intelligence.androidapplication.R;
 import com.intelligence.androidapplication.event.PendingEvent;
@@ -136,5 +138,27 @@ public class MainActivity extends BaseActivity {
         Intent intent = new Intent(mActivity, MainActivity.class);
         startActivity(intent);
         activityManagerUtil.finishAllActivity();
+    }
+
+
+    //双击返回退出程序
+    private long firstTime = 0;
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                long secondTime = System.currentTimeMillis();
+                if (secondTime - firstTime > 2000) {//如果两次按键时间间隔大于2秒，则不退出
+                    Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                    firstTime = secondTime;//更新firstTime
+                    return true;
+                } else { //两次按键小于2秒时，退出应用
+                    System.exit(0);
+                }
+                break;
+        }
+        return super.onKeyUp(keyCode, event);
     }
 }
