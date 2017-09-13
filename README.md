@@ -137,7 +137,49 @@
 * 文件夹<navigation>
 ![](https://github.com/CaiXiaoShuang/FastLibrary/blob/master/app/src/main/res/mipmap-xhdpi/app2.png) 
 ## 项目提供接口请求方式<br>
+* Apicallback返回方法
+* ApiStores 接口方法
+* AppClient 设置Retrofit
+* BaseModel 返回状态类型
+ /**
+   * @接口请求
+    */
+    private void btnLogin() {<br>
+        //加载对话框<br>
+        showProgressDialog();<br>
+        //请求参数<br>
+        MainParameter mainParameter = new MainParameter();<br>
+        mainParameter.setUserName("name");<br>
+        mainParameter.setUserPswd("123");<br>
+        //开始请求<br>
+        addSubscription(apiStores.userLogin(mainParameter),
+                new ApiCallback<MainModel>() {
+                    @Override
+                    public void onSuccess(MainModel model) {
+                        //成功请求内容
+                    }
 
+                    @Override
+                    public void onFailure(MainModel model, String msg) {
+                        toastShow(msg);
+                    }
+
+                    @Override
+                    public void onFailure(String msg) {
+                        toastShow(msg);
+                    }
+
+
+                    @Override
+                    public void onFinish() {
+                        //不管失败/成功都会走
+                        dismissProgressDialog();
+                    }
+
+                });
+    }
+
+	
 
 
 
