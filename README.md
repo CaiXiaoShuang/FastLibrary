@@ -38,24 +38,36 @@
                     }
                 }));
     }<br>
+	
+	
 ## 三.集成工具<br>   
-## 2.Activity统一管理工具<br> 
+### 2.Activity统一管理工具<br> 
 * 使用方法:<br> 
-* ①定义<br> 
+* 定义<br> 
 * public ActivityManagerUtil activityManagerUtil;<br> 
-* ②初始化<br> 
+* 初始化<br> 
      @Override<br> 
       protected void onCreate(Bundle savedInstanceState) {<br> 
         super.onCreate(savedInstanceState);<br>
         activityManagerUtil = ActivityManagerUtil.getInstance();<br> 
         activityManagerUtil.pushOneActivity(this)<br> 
     }<br> 
-*  ③结束Activity&从栈中移除该Activity<br> 
+* 结束Activity&从栈中移除该Activity<br> 
     @Override<br> 
     protected void onDestroy() {<br> 
         super.onDestroy();<br> 
          activityManagerUtil.popOneActivity(this);<br> 
-     }<br> 
+     }<br>
+	 
+* 方法1.把一个activity压入栈中 pushOneActivity(Activity actvity)<br>
+* 方法2.移除一个activity       popOneActivity(Activity activity)<br>
+* 方法3.获取栈顶的activity，先进后出原则 getLastActivity()<br>
+* 结束指定的Activity           finishActivity(Activity activity)<br>
+* 结束指定类名的Activity       finishActivity(Class<?> cls)<br>
+* 结束所有activity             finishAllActivity()<br>
+* 退出应用程序                 appExit()        
+ 
+	 
     
 
 
