@@ -6,11 +6,6 @@ import android.text.TextUtils;
 import retrofit2.adapter.rxjava.HttpException;
 import rx.Subscriber;
 
-/**
- * Created by WuXiaolong
- * on 2016/9/20.
- */
-
 public abstract class ApiCallback<M> extends Subscriber<M> {
 
     public abstract void onSuccess(M model);

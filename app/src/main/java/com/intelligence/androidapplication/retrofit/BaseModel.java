@@ -1,10 +1,5 @@
 package com.intelligence.androidapplication.retrofit;
 
-/**
- * Created by Administrator
- * on 2017/8/24.
- */
-
 public class BaseModel {
 
     private boolean isSuccess;
