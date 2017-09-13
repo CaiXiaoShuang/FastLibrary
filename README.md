@@ -101,20 +101,20 @@
 ### 将init放到application中，
 ### 程序中直接使用即可
 * 初始化文件存储方式: SharePreferenceUtils.init(this);
-####存储
+#### 存储
 * 存储String方法:putString(String key, String value)
 * 存储Int方法：putInt(String key, int value)
 * 存储Float方法：putFloat(String key, float value)
 * 存储Boolean方法：putBoolean(String key, boolean value)
 * 存储Object方法：putObject(String key, Object value)
-####取出
+#### 取出
 * 取出String方法：getString(String key)
 * 取出Int方法：getInt(String key)
 * 取出Float方法：getFloat(String key)
 * 取出Boolean方法：getBoolean(String key, boolean value)
 * 取出Object方法：getObject(String key, Class<T> clazz)
 * 取出List方法：getList(String key, TypeToken<T> token)
-####删除
+#### 删除
 * 删除一个值方法 remove(String key)
 
 
