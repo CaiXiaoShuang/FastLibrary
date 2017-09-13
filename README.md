@@ -132,9 +132,11 @@
 * 方法：getVersionCode(Context context)<br>
 # 项目<br>
 ## 项目提供常见二种布局方式<br>
+* 文件夹<main>
+![](https://github.com/CaiXiaoShuang/FastLibrary/blob/master/app/src/main/res/mipmap-xhdpi/app1.png) 
+* 文件夹<navigation>
+![](https://github.com/CaiXiaoShuang/FastLibrary/blob/master/app/src/main/res/mipmap-xhdpi/app2.png) 
 ## 项目提供接口请求方式<br>
-![](https://github.com/CaiXiaoShuang/FastLibrary/ras/master/mipmap-xhdpi/app1.png) 
-![](https://github.com/CaiXiaoShuang/FastLibrary/ras/master/mipmap-xhdpi/app2.png) 
 
 
 
