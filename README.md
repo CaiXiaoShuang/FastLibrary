@@ -126,10 +126,17 @@
 * 方法： toVersionUpdate(final Context context,String title,String message,final String url,String forcedUpdate)
 ## 七.集成工具<br> 
 ### 1.VersionUtil工具类<br>
-* 获取版本号
-* 方法：String getVersionName(Context context)
-* 获取版本code
-* 方法：getVersionCode(Context context)
+* 获取版本号<br>
+* 方法：String getVersionName(Context context)<br>
+* 获取版本code<br>
+* 方法：getVersionCode(Context context)<br>
+# 项目<br>
+## 项目提供常见二种布局方式<br>
+* 文件夹<main>
+![](https://github.com/CaiXiaoShuang/FastLibrary/blob/master/app/src/main/res/mipmap-xhdpi/app1.png) 
+* 文件夹<navigation>
+![](https://github.com/CaiXiaoShuang/FastLibrary/blob/master/app/src/main/res/mipmap-xhdpi/app2.png) 
+## 项目提供接口请求方式<br>
 
 
 
