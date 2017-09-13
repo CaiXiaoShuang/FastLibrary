@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 
 /**
  * 取消页面滚动
- * Created by lyl on 2016/7/18.
+ *
  */
 public class NoSlidingViewPaper extends ViewPager {
 	public NoSlidingViewPaper(Context context, AttributeSet attrs) {

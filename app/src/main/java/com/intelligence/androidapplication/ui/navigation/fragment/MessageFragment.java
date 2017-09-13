@@ -1,5 +1,6 @@
 package com.intelligence.androidapplication.ui.navigation.fragment;
 
+import android.view.View;
 import android.widget.Toast;
 
 import com.intelligence.androidapplication.R;
@@ -7,7 +8,7 @@ import com.intelligence.androidapplication.R;
 public class MessageFragment extends BaseFragement {
 
     @Override
-    protected void initView() {
+    protected void initView(View view) {
 
     }
 

@@ -1,40 +1,33 @@
 package com.intelligence.androidapplication.ui.navigation.fragment;
 
+
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 public abstract class BaseFragement extends Fragment {
-
-    protected View mView;
-    protected boolean isViewInitiated; //当前页面是否初始化
-    protected boolean isVisibleToUser; //当前页面是否显示
-    protected boolean isDataRequested; //是否已经请求了数据
-    protected Context mContext;
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        mContext = getContext();
-        mView = inflater.inflate(getLayoutId(), null);
+    public View mView;
+    public boolean isViewInitiated; //当前页面是否初始化
+    public boolean isVisibleToUser; //当前页面是否显示
+    public boolean isDataRequested; //是否已经请求了数据
+    public Context mContext;
+    public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
+        mContext =getActivity();
+        mView = inflater.inflate(getLayoutId(),container, false);
         isViewInitiated = true;
-        initView();
+        initView(mView);
         prepareGetData();
         return mView;
     }
-
-    /*初始化页面布局和数据*/
-    protected abstract void initView();
     /*布局*/
     public abstract int getLayoutId();
     /*服务器获取数据*/
     protected abstract void getDataFromServer();
-
+    /*初始化页面布局和数据*/
+    protected abstract void initView(View mView);
     /**
      * 当前页面是否展示
      * @param isVisibleToUser 显示为true， 不显示为false
