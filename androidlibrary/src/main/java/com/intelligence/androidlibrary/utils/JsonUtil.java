@@ -12,34 +12,23 @@ import java.util.List;
  */
 public class JsonUtil {
 
-	/**
-	 * Jsonת����
-	 */
+
 	public static Object jsonToObject(String json, Class<?> classOfT) {
 		GsonBuilder builder = new GsonBuilder();
 		Gson gson = builder.setDateFormat("yyyy-MM-dd HH:mm:ss").create();
 		return gson.fromJson(json, classOfT);
 	}
 
-	/**
-	 * Jsonת����
-	 */
 	public static Object jsonToObject(String json, Type type) {
 		GsonBuilder builder = new GsonBuilder();
 		Gson gson = builder.setDateFormat("yyyy-MM-dd HH:mm:ss").create();
 		return gson.fromJson(json, type);
 	}
 
-	/**
-	 * json������ArrayList,����Ϊnew TypeToken<ArrayList<T>>() {},����ӷ���
-	 */
 	public static List<?> jsonToList(String json, TypeToken<?> token) {
 		return (List<?>) jsonToObject(json, token.getType());
 	}
 
-	/**
-	 * ����תJson
-	 */
 	public static String objetcToJson(Object object) {
 		GsonBuilder builder = new GsonBuilder();
 		Gson gson = builder.setDateFormat("yyyy-MM-dd HH:mm:ss").create();
