@@ -67,7 +67,30 @@
 * 结束所有activity             finishAllActivity()<br>
 * 退出应用程序                 appExit()        
  
-	 
+## 四.集成工具<br> 
+### 1.圆形ImageView，可设置最多两个宽度不同且颜色不同的圆形边框。<br>
+### 2.设置颜色在xml布局文件中由自定义属性配置参数指定<br>
+* 使用方法
+ 没有指定圆形ImageView属性时，默认没有外边圆颜色<br> 
+ 需要将图片资源自定为src ，或在程序中setImageResource(res) 不能设置background为图片，这样不能达到圆形效果<br> 
+    <com.intelligence.androidlibrary.view.RoundImageView<br> 
+        android:layout_width="100dp"<br> 
+        android:layout_height="100dp"<br> 
+        android:src="@drawable/img"<br> 
+        android:id="@+id/tu"<br> 
+        android:layout_gravity="center_vertical"<br> 
+        />
+     border_outside_color 外部圆圈的颜色<br> 
+     border_inside_color 内部部圆圈的颜色<br> 
+     border_thickness 外圆和内圆的宽度<br> 
+    <com.intelligence.androidlibrary.view.RoundImageView<br> 
+        android:layout_width="100dp"<br> 
+        android:layout_height="100dp"<br> 
+        android:src="@drawable/img"<br> 
+        imagecontrol:border_inside_color="#bc0978"<br> 
+        imagecontrol:border_outside_color="#ba3456"<br> 
+        imagecontrol:border_thickness="1dp"<br> 
+        /><br> 
     
 
 
