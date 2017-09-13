@@ -10,8 +10,9 @@
 >>compile 'io.reactivex:rxandroid:1.2.1'<br> 
 >>compile 'io.reactivex:rxjava:1.1.6'<br> 
 >>compile 'com.squareup.picasso:picasso:2.5.2'<br>
+--------------------------------------------------------------------------------------------------------------------------------
 ## 二.集成工具<br> 
-### 1.RxJava目前已经很火的RxBus<br> 
+### 1.RxJava目前已经很火的RxBus<br>
 * 使用方法如下:<br> 
 * 发送事件:RxBus.getInstance().post(new PendingEvent());<br> 
 * 接收事件:<br> 
@@ -36,9 +37,9 @@
                         }
                     }
                 }));
-    }
-
-### 2.Activity统一管理工具<br> 
+    }<br>
+## 三.集成工具<br>   
+## 2.Activity统一管理工具<br> 
 * 使用方法:<br> 
 * ①定义<br> 
 * public ActivityManagerUtil activityManagerUtil;<br> 
@@ -56,6 +57,9 @@
          activityManagerUtil.popOneActivity(this);<br> 
      }<br> 
     
+
+
+
 
 
 
