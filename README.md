@@ -116,6 +116,20 @@
 * 取出List方法：getList(String key, TypeToken<T> token)
 #### 删除
 * 删除一个值方法 remove(String key)
+## 六.集成工具<br> 
+### 1.UpdateUtils工具类<br>
+* 通过浏览下载Apk
+* @param title 标题
+* @param message 内容
+* @param url  apk下载地址
+* @param forcedUpdate 是否强制下载 Y:是 N：否
+* 方法： toVersionUpdate(final Context context,String title,String message,final String url,String forcedUpdate)
+## 七.集成工具<br> 
+### 1.VersionUtil工具类<br>
+* 获取版本号
+* 方法：String getVersionName(Context context)
+* 获取版本code
+* 方法：getVersionCode(Context context)
 
 
 
