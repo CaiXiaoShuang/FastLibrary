@@ -133,9 +133,9 @@
 # 项目<br>
 ## 项目提供常见二种布局方式<br>
 * 文件夹<main>
-![](https://github.com/CaiXiaoShuang/FastLibrary/blob/master/app/src/main/res/mipmap-hdpi/app1.png) 
+![](https://github.com/CaiXiaoShuang/FastLibrary/blob/master/app/src/main/res/mipmap-xhdpi/app1.png) 
 * 文件夹<navigation>
-![](https://github.com/CaiXiaoShuang/FastLibrary/blob/master/app/src/main/res/mipmap-hdpi/app2.png) 
+![](https://github.com/CaiXiaoShuang/FastLibrary/blob/master/app/src/main/res/mipmap-xhdpi/app2.png) 
 ## 项目提供接口请求方式<br>
 * Apicallback返回方法
 * ApiStores 接口方法
