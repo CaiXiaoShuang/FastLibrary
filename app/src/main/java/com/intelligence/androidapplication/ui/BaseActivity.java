@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.intelligence.androidapplication.retrofit.ApiStores;
 import com.intelligence.androidapplication.retrofit.AppClient;
+import com.intelligence.androidapplication.ui.main.fragment.BaseFragment;
 import com.intelligence.androidlibrary.base.ActivityManagerUtil;
 import com.intelligence.androidlibrary.rxjava.RxBus;
 
@@ -26,7 +28,7 @@ import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 
 public class BaseActivity extends AppCompatActivity{
-
+    protected BaseFragment currentFragment;
     public Activity mActivity;
     public ActivityManagerUtil activityManagerUtil;
     public ApiStores apiStores;
@@ -150,6 +152,33 @@ public class BaseActivity extends AppCompatActivity{
 
     public void toastShow(CharSequence text) {
         Toast.makeText(mActivity, text, Toast.LENGTH_SHORT).show();
+    }
+
+
+    /**
+     * 用Fragment替换视图
+     *
+     * @param resView        将要被替换掉的视图
+     * @param targetFragment 用来替换的Fragment
+     */
+    public void changeFragment(int resView, BaseFragment targetFragment) {
+        if (targetFragment.equals(currentFragment)) {
+            return;
+        }
+        android.support.v4.app.FragmentTransaction transaction
+                = getSupportFragmentManager().beginTransaction();
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        if (!targetFragment.isAdded()) {
+            transaction.add(resView, targetFragment, targetFragment.getClass().getName());
+        }
+        if (targetFragment.isHidden()) {
+            transaction.show(targetFragment);
+        }
+        if (currentFragment != null && currentFragment.isVisible()) {
+            transaction.hide(currentFragment);
+        }
+        currentFragment = targetFragment;
+        transaction.commit();
     }
 
 }

@@ -3,8 +3,6 @@ package com.intelligence.androidapplication.ui.main;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.intelligence.androidapplication.R;
@@ -12,53 +10,90 @@ import com.intelligence.androidapplication.event.PendingEvent;
 import com.intelligence.androidapplication.parameter.MainParameter;
 import com.intelligence.androidapplication.retrofit.ApiCallback;
 import com.intelligence.androidapplication.ui.BaseActivity;
+import com.intelligence.androidapplication.ui.main.fragment.HomeFragment;
+import com.intelligence.androidapplication.ui.main.fragment.DeliveryFragment;
+import com.intelligence.androidapplication.ui.main.fragment.MyFragment;
+import com.intelligence.androidapplication.ui.main.fragment.OrderFragment;
 import com.intelligence.androidapplication.ui.main.model.MainModel;
+import com.intelligence.androidlibrary.bottomNavigationViews.BottomNavigationItem;
+import com.intelligence.androidlibrary.bottomNavigationViews.BottomNavigationView;
+import com.intelligence.androidlibrary.bottomNavigationViews.OnBottomNavigationItemClickListener;
 import com.intelligence.androidlibrary.rxjava.RxBus;
-import com.intelligence.androidlibrary.slidesidemenu.SlideSideMenuTransitionLayout;
 
 import butterknife.Bind;
-import butterknife.OnClick;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class MainActivity extends BaseActivity {
-    @Bind(R.id.tv_name)
-    TextView tv_name;//用户名
-    private SlideSideMenuTransitionLayout mSlideSideMenu;
+public class MainActivity extends BaseActivity implements OnBottomNavigationItemClickListener {
+    @Bind(R.id.bottomNavigation)
+    BottomNavigationView bottomNavigationViews;
+    private HomeFragment homeFragment;
+    private DeliveryFragment messageFragment;
+    private OrderFragment publishFragment;
+    private MyFragment myFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Grab the widget
-        mSlideSideMenu = (SlideSideMenuTransitionLayout) findViewById(R.id.slide_side_menu);
-        //启动侧拉
-//       mSlideSideMenu.toggle();
+        initView();
+    }
 
-        tv_name.setText("快速开发框架");
+    private void initView() {
+        BottomNavigationItem item_main = new BottomNavigationItem("首页", getResources().getColor(R.color.cyan), R.mipmap.ic_tab_yes_1, R.mipmap.ic_tab_no_1);
+        BottomNavigationItem item_shop = new BottomNavigationItem("发货", getResources().getColor(R.color.cyan), R.mipmap.ic_tab_yes_2, R.mipmap.ic_tab_no_2);
+        BottomNavigationItem item_requirement = new BottomNavigationItem("订单", getResources().getColor(R.color.cyan), R.mipmap.ic_tab_yes_3, R.mipmap.ic_tab_no_3);
+        BottomNavigationItem item_my = new BottomNavigationItem("我的", getResources().getColor(R.color.cyan), R.mipmap.ic_tab_yes_4, R.mipmap.ic_tab_no_4);
+
+        bottomNavigationViews.addTab(item_main);
+        bottomNavigationViews.addTab(item_shop);
+        bottomNavigationViews.addTab(item_requirement);
+        bottomNavigationViews.addTab(item_my);
+        bottomNavigationViews.setItemActiveColorWithoutColoredBackground(getResources().getColor(R.color.cyan));
+        bottomNavigationViews.isColoredBackground(false);
+        bottomNavigationViews.setOnBottomNavigationItemClickListener(this);
+        bottomNavigationViews.selectTab(0);
     }
 
     @Override
-    public void onBackPressed() {
-        if (mSlideSideMenu != null && mSlideSideMenu.closeSideMenu()) {
-            // Closed the side menu, override the default back pressed behavior
-            return;
-        }
-        super.onBackPressed();
-    }
-
-
-    @OnClick({R.id.tv_name})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.tv_name://
-                toastShow("o(>﹏<)o不要啊");
+    public void onNavigationItemClick(int index) {
+        switch (index) {
+            case 0:
+                if (null == homeFragment) {
+                    homeFragment = HomeFragment.newInstance();
+                }
+                changeFragment(R.id.main_frame, homeFragment);
                 break;
+            case 1:
+                if (null == messageFragment) {
+                    messageFragment = DeliveryFragment.newInstance();
+                }
+                changeFragment(R.id.main_frame, messageFragment);
+                break;
+
+            case 2:
+                if (null == publishFragment) {
+                    publishFragment = OrderFragment.newInstance();
+                }
+                changeFragment(R.id.main_frame, publishFragment);
+                break;
+            case 3:
+                if (null == myFragment) {
+                    myFragment = MyFragment.newInstance();
+                }
+                changeFragment(R.id.main_frame, myFragment);
+                break;
+
         }
     }
 
 
+
+
+
+
+    //以下常用方法集成
     /**
      * @接口请求
      */
@@ -161,4 +196,8 @@ public class MainActivity extends BaseActivity {
         }
         return super.onKeyUp(keyCode, event);
     }
+
+
+
+
 }

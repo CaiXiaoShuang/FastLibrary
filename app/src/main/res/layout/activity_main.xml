@@ -1,68 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.intelligence.androidlibrary.slidesidemenu.SlideSideMenuTransitionLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/slide_side_menu"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:clipToPadding="true"
     android:fitsSystemWindows="true"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
+    android:orientation="vertical">
+
+
+    <FrameLayout
+        android:id="@+id/main_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/colorPrimary"
-        android:padding="50dp">
+        android:layout_weight="1" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:layout_marginTop="20dp"
-            android:textColor="#ffffff"
-            android:text="Item 1"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textSize="20dp"
-            android:textColor="#ffffff"
-            android:text="Item 2"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textSize="20dp"
-            android:textColor="#ffffff"
-            android:text="Item 3"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textSize="20dp"
-            android:textColor="#ffffff"
-            android:text="Item 4"/>
-    </LinearLayout>
-
-    <com.intelligence.androidlibrary.slidesidemenu.SlideSideMenuContentCardView
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#ffffff">
-            <TextView
-                android:id="@+id/tv_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="40dp"
-                android:text="Main Screen"/>
+        android:layout_height="1dip"
+        android:background="#f1f1f1" />
 
-        </FrameLayout>
-    </com.intelligence.androidlibrary.slidesidemenu.SlideSideMenuContentCardView>
-</com.intelligence.androidlibrary.slidesidemenu.SlideSideMenuTransitionLayout>
+    <com.intelligence.androidlibrary.bottomNavigationViews.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible" />
+</LinearLayout>

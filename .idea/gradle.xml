@@ -8,7 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/androidlibrary" />
+            <option value="$PROJECT_DIR$/CaiXiaoShuangLibrary" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
