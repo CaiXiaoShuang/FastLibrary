@@ -1,5 +1,24 @@
 快速开发框架
 =========
+Step 1. Add the JitPack repository to your build file
+Add it in your root build.gradle at the end of repositories:
+
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+Copy
+
+Step 2. Add the dependency
+
+	dependencies {
+	        compile 'com.github.CaiXiaoShuang:FastLibrary:1.0.0'
+	}
+
+
+
 ## 一.集成Library
 >>compile 'com.jakewharton:butterknife:7.0.1'
 >>compile 'com.squareup.retrofit2:retrofit:2.1.0'<br> 
