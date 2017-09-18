@@ -10,7 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.main.MainActivity">
+        <activity android:name=".ui.main.MainActivity"></activity>
+        <activity
+            android:name=".ui.navigation.NavigationActivity"
+            android:label="@string/title_activity_navigation"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,11 +22,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.navigation.NavigationActivity"
-            android:label="@string/title_activity_navigation"
-            android:theme="@style/AppTheme">
-
-        </activity>
+            android:name=".ui.bottomnavigation.BottomnavigtionActivity"
+            android:label="@string/title_activity_bottomnavigtion"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

@@ -15,9 +15,13 @@ import com.intelligence.androidlibrary.utils.LogUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.Bind;
+
 public class HomeFragment extends BaseFragement {
     private TextView tv_wo;
     private List<MainModel> mainModels;
+    @Bind(R.id.tv_c)
+    TextView tv_c;
 
     @Override
     public int getLayoutId() {
@@ -35,6 +39,7 @@ public class HomeFragment extends BaseFragement {
         }
         tv_wo = (TextView)view.findViewById(R.id.tv_wo);
         tv_wo.setText("测试");
+        tv_c.setText("你好");
         setDislistPopupMenu(tv_wo);
 
 
