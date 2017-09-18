@@ -175,8 +175,8 @@
 
 # 项目<br>
 ## 项目提供常见一种布局<br>
-* 文件夹<main>
-![](https://github.com/CaiXiaoShuang/FastLibrary/blob/master/app/src/main/res/mipmap-xhdpi/app1.png) 	
+* 布局图片<main>
+![](https://github.com/CaiXiaoShuang/FastLibrary/blob/master/app/src/main/res/mipmap-hdpi/app.png) 	
 
 
 
