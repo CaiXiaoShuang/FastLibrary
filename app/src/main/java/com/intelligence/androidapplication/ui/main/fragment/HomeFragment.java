@@ -5,10 +5,13 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.zxing.WriterException;
 import com.intelligence.androidapplication.R;
 import com.intelligence.androidlibrary.zxing.android.CaptureActivity;
+import com.intelligence.androidlibrary.zxing.encode.CodeCreator;
 
 import butterknife.Bind;
 
@@ -19,6 +22,8 @@ public class HomeFragment extends BaseFragment {
     TextView tv_wo;
     @Bind(R.id.bt_scan)
     Button bt_scan;
+    @Bind(R.id.iv_scan)
+    ImageView iv_scan;
 
     private static final String DECODED_CONTENT_KEY = "codedContent";
     private static final String DECODED_BITMAP_KEY = "codedBitmap";
@@ -38,6 +43,11 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     public void initData() {
+        try {
+            iv_scan.setImageBitmap(new CodeCreator().createQRCode("123456"));
+        } catch (WriterException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -50,8 +60,6 @@ public class HomeFragment extends BaseFragment {
                 startActivityForResult(intent, REQUEST_CODE_SCAN);
             }
         });
-
-        tv_wo.setText("首页Text");
     }
 
     @Override
