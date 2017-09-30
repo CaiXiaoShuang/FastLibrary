@@ -22,8 +22,10 @@ public class HomeFragment extends BaseFragment {
     TextView tv_wo;
     @Bind(R.id.bt_scan)
     Button bt_scan;
-    @Bind(R.id.iv_scan)
-    ImageView iv_scan;
+    @Bind(R.id.iv_qr_code)
+    ImageView iv_qr_code;
+    @Bind(R.id.iv_bar_code)
+    ImageView iv_bar_code;
 
     private static final String DECODED_CONTENT_KEY = "codedContent";
     private static final String DECODED_BITMAP_KEY = "codedBitmap";
@@ -44,10 +46,12 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void initData() {
         try {
-            iv_scan.setImageBitmap(new CodeCreator().createQRCode("123456"));
+            iv_qr_code.setImageBitmap(new CodeCreator().createQRCode("123456"));
         } catch (WriterException e) {
             e.printStackTrace();
         }
+
+        iv_bar_code.setImageBitmap(new CodeCreator().creatBarcode(mActivity,"123456"));
 
     }
 

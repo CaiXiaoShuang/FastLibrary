@@ -15,12 +15,14 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.Result;
 import com.intelligence.androidlibrary.R;
 import com.intelligence.androidlibrary.zxing.camera.CameraManager;
 import com.intelligence.androidlibrary.zxing.view.ViewfinderView;
+
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Map;
@@ -39,6 +41,7 @@ public final class CaptureActivity extends Activity implements
     private CaptureActivityHandler handler;
     private ViewfinderView viewfinderView;
     private boolean hasSurface;
+    private boolean flashanmp=true;
     private IntentSource source;
     private Collection<BarcodeFormat> decodeFormats;
     private Map<DecodeHintType, ?> decodeHints;
@@ -49,6 +52,7 @@ public final class CaptureActivity extends Activity implements
     private BeepManager beepManager;
 
     private ImageButton imageButton_back;
+    private ImageButton ib_flash_lamp;
 
     public ViewfinderView getViewfinderView() {
         return viewfinderView;
@@ -83,11 +87,26 @@ public final class CaptureActivity extends Activity implements
         beepManager = new BeepManager(this);
 
         imageButton_back = (ImageButton) findViewById(R.id.capture_imageview_back);
+        ib_flash_lamp=(ImageButton)findViewById(R.id.ib_flash_lamp);
+
         imageButton_back.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        //打开闪光灯、关闭闪光灯
+        ib_flash_lamp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(flashanmp) {
+                    cameraManager.openLight();
+                    flashanmp=false;
+                }else {
+                    cameraManager.offLight();
+                    flashanmp=true;
+                }
             }
         });
     }
@@ -233,5 +252,6 @@ public final class CaptureActivity extends Activity implements
         builder.setOnCancelListener(new FinishListener(this));
         builder.show();
     }
+
 
 }

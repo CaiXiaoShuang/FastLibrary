@@ -23,7 +23,6 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
@@ -79,7 +78,7 @@ public final class ViewfinderView extends View {
         Resources resources = getResources();
         maskColor = resources.getColor(R.color.viewfinder_mask);
         resultColor = resources.getColor(R.color.result_view);
-        laserColor = resources.getColor(R.color.viewfinder_laser);
+        laserColor = resources.getColor(R.color.line);
         resultPointColor = resources.getColor(R.color.possible_result_points);
         statusColor = resources.getColor(R.color.status_text);
         scannerAlpha = 0;
@@ -192,14 +191,15 @@ public final class ViewfinderView extends View {
      */
     private void drawFrameBounds(Canvas canvas, Rect frame) {
 
-        paint.setColor(Color.WHITE);
+        paint.setColor(laserColor);
         paint.setStrokeWidth(2);
         paint.setStyle(Paint.Style.STROKE);
 
         canvas.drawRect(frame, paint);
 
-        paint.setColor(Color.BLUE);
+        paint.setColor(laserColor);
         paint.setStyle(Paint.Style.FILL);
+
 
         int corWidth = 15;
         int corLength = 45;
@@ -237,21 +237,16 @@ public final class ViewfinderView extends View {
 
         String statusText1 = getResources().getString(
                 R.string.viewfinderview_status_text1);
-        String statusText2 = getResources().getString(
-                R.string.viewfinderview_status_text2);
-        int statusTextSize = 45;
-        int statusPaddingTop = 180;
+        int statusTextSize = 30;
+        int statusPaddingTop = 550;
 
         paint.setColor(statusColor);
         paint.setTextSize(statusTextSize);
 
         int textWidth1 = (int) paint.measureText(statusText1);
-        canvas.drawText(statusText1, (width - textWidth1) / 2, frame.top
-                - statusPaddingTop, paint);
+        canvas.drawText(statusText1, (width - textWidth1)/2, frame.top
+                + statusPaddingTop, paint);
 
-        int textWidth2 = (int) paint.measureText(statusText2);
-        canvas.drawText(statusText2, (width - textWidth2) / 2, frame.top
-                - statusPaddingTop + 60, paint);
     }
 
     /**
