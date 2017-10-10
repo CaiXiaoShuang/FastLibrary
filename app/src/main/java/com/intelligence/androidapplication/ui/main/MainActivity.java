@@ -29,8 +29,8 @@ public class MainActivity extends BaseActivity implements OnBottomNavigationItem
     @Bind(R.id.bottomNavigation)
     BottomNavigationView bottomNavigationViews;
     private HomeFragment homeFragment;
-    private DeliveryFragment messageFragment;
-    private OrderFragment publishFragment;
+    private DeliveryFragment deliveryFragment;
+    private OrderFragment orderFragment;
     private MyFragment myFragment;
 
     @Override
@@ -42,13 +42,13 @@ public class MainActivity extends BaseActivity implements OnBottomNavigationItem
 
     private void initView() {
         BottomNavigationItem item_main = new BottomNavigationItem("首页", getResources().getColor(R.color.cyan), R.mipmap.ic_tab_yes_1, R.mipmap.ic_tab_no_1);
-        BottomNavigationItem item_shop = new BottomNavigationItem("发货", getResources().getColor(R.color.cyan), R.mipmap.ic_tab_yes_2, R.mipmap.ic_tab_no_2);
-        BottomNavigationItem item_requirement = new BottomNavigationItem("订单", getResources().getColor(R.color.cyan), R.mipmap.ic_tab_yes_3, R.mipmap.ic_tab_no_3);
+        BottomNavigationItem item_delivery = new BottomNavigationItem("发货", getResources().getColor(R.color.cyan), R.mipmap.ic_tab_yes_2, R.mipmap.ic_tab_no_2);
+        BottomNavigationItem item_order = new BottomNavigationItem("订单", getResources().getColor(R.color.cyan), R.mipmap.ic_tab_yes_3, R.mipmap.ic_tab_no_3);
         BottomNavigationItem item_my = new BottomNavigationItem("我的", getResources().getColor(R.color.cyan), R.mipmap.ic_tab_yes_4, R.mipmap.ic_tab_no_4);
 
         bottomNavigationViews.addTab(item_main);
-        bottomNavigationViews.addTab(item_shop);
-        bottomNavigationViews.addTab(item_requirement);
+        bottomNavigationViews.addTab(item_delivery);
+        bottomNavigationViews.addTab(item_order);
         bottomNavigationViews.addTab(item_my);
         bottomNavigationViews.setItemActiveColorWithoutColoredBackground(getResources().getColor(R.color.cyan));
         bottomNavigationViews.isColoredBackground(false);
@@ -66,17 +66,17 @@ public class MainActivity extends BaseActivity implements OnBottomNavigationItem
                 changeFragment(R.id.main_frame, homeFragment);
                 break;
             case 1:
-                if (null == messageFragment) {
-                    messageFragment = DeliveryFragment.newInstance();
+                if (null == deliveryFragment) {
+                    deliveryFragment = DeliveryFragment.newInstance();
                 }
-                changeFragment(R.id.main_frame, messageFragment);
+                changeFragment(R.id.main_frame, deliveryFragment);
                 break;
 
             case 2:
-                if (null == publishFragment) {
-                    publishFragment = OrderFragment.newInstance();
+                if (null == orderFragment) {
+                    orderFragment = OrderFragment.newInstance();
                 }
-                changeFragment(R.id.main_frame, publishFragment);
+                changeFragment(R.id.main_frame, orderFragment);
                 break;
             case 3:
                 if (null == myFragment) {
