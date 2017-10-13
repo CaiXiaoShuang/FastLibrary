@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 
 import com.google.zxing.PlanarYUVLuminanceSource;
+import com.intelligence.androidlibrary.zxing.android.PreferencesActivity;
 
 import java.io.IOException;
 
@@ -23,10 +24,10 @@ public final class CameraManager {
 
     private static final String TAG = CameraManager.class.getSimpleName();
 
-    private static final int MIN_FRAME_WIDTH = 600;
-    private static final int MIN_FRAME_HEIGHT = 600;
-    private static final int MAX_FRAME_WIDTH = 600; // = 5/8 * 1920
-    private static final int MAX_FRAME_HEIGHT = 600; // = 5/8 * 1080
+    private static final int MIN_FRAME_WIDTH = PreferencesActivity.width - 80;
+    private static final int MIN_FRAME_HEIGHT = PreferencesActivity.width - 80;
+    private static final int MAX_FRAME_WIDTH = PreferencesActivity.width - 80; // = 5/8 * 1920
+    private static final int MAX_FRAME_HEIGHT = PreferencesActivity.width - 80; // = 5/8 * 1080
 
     private final Context context;
     private final CameraConfigurationManager configManager;

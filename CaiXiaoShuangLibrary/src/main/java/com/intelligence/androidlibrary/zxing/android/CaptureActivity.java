@@ -3,6 +3,7 @@ package com.intelligence.androidlibrary.zxing.android;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -80,6 +81,11 @@ public final class CaptureActivity extends Activity implements
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.capture);
+
+        WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
+
+        PreferencesActivity.width = wm.getDefaultDisplay().getWidth();
+        PreferencesActivity.height = wm.getDefaultDisplay().getHeight();
 
         hasSurface = false;
 
