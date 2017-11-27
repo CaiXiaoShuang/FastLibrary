@@ -3,6 +3,7 @@ package com.intelligence.androidapplication.ui.main.fragment;
 import android.os.Bundle;
 
 import com.intelligence.androidapplication.R;
+import com.intelligence.androidapplication.utils.CommonDialog;
 
 /**
  * Created by Administrator
@@ -30,6 +31,13 @@ public class MyFragment extends BaseFragment {
 
     @Override
     protected void initView() {
+        final CommonDialog confirmDialog = new CommonDialog(mActivity);
+        confirmDialog.show();
+        confirmDialog.setClicklistener(new CommonDialog.ClickListenerInterface() {
+            @Override
+            public void doConfirm() {
 
+            }
+        });
     }
 }

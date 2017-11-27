@@ -10,11 +10,12 @@ import com.intelligence.androidapplication.event.PendingEvent;
 import com.intelligence.androidapplication.parameter.MainParameter;
 import com.intelligence.androidapplication.retrofit.ApiCallback;
 import com.intelligence.androidapplication.ui.BaseActivity;
-import com.intelligence.androidapplication.ui.main.fragment.HomeFragment;
 import com.intelligence.androidapplication.ui.main.fragment.DeliveryFragment;
+import com.intelligence.androidapplication.ui.main.fragment.HomeFragment;
 import com.intelligence.androidapplication.ui.main.fragment.MyFragment;
 import com.intelligence.androidapplication.ui.main.fragment.OrderFragment;
 import com.intelligence.androidapplication.ui.main.model.MainModel;
+import com.intelligence.androidapplication.utils.CommonDialog;
 import com.intelligence.androidlibrary.bottomNavigationViews.BottomNavigationItem;
 import com.intelligence.androidlibrary.bottomNavigationViews.BottomNavigationView;
 import com.intelligence.androidlibrary.bottomNavigationViews.OnBottomNavigationItemClickListener;
@@ -54,6 +55,8 @@ public class MainActivity extends BaseActivity implements OnBottomNavigationItem
         bottomNavigationViews.isColoredBackground(false);
         bottomNavigationViews.setOnBottomNavigationItemClickListener(this);
         bottomNavigationViews.selectTab(0);
+
+
     }
 
     @Override
