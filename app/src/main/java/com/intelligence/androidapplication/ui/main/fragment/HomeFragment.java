@@ -13,18 +13,19 @@ import com.intelligence.androidapplication.R;
 import com.intelligence.androidlibrary.zxing.android.CaptureActivity;
 import com.intelligence.androidlibrary.zxing.encode.CodeCreator;
 
-import butterknife.Bind;
+
+import butterknife.BindView;
 
 import static android.app.Activity.RESULT_OK;
 
 public class HomeFragment extends BaseFragment {
-    @Bind(R.id.tv_wo)
+    @BindView(R.id.tv_wo)
     TextView tv_wo;
-    @Bind(R.id.bt_scan)
+    @BindView(R.id.bt_scan)
     Button bt_scan;
-    @Bind(R.id.iv_qr_code)
+    @BindView(R.id.iv_qr_code)
     ImageView iv_qr_code;
-    @Bind(R.id.iv_bar_code)
+    @BindView(R.id.iv_bar_code)
     ImageView iv_bar_code;
 
     private static final String DECODED_CONTENT_KEY = "codedContent";

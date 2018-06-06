@@ -2,15 +2,15 @@ package com.intelligence.androidapplication.retrofit;
 
 public class BaseModel {
 
-    private boolean isSuccess;
+    private boolean success;
     private String message;
 
     public boolean isSuccess() {
-        return isSuccess;
+        return success;
     }
 
     public void setSuccess(boolean success) {
-        isSuccess = success;
+        this.success = success;
     }
 
     public String getMessage() {
@@ -20,5 +20,4 @@ public class BaseModel {
     public void setMessage(String message) {
         this.message = message;
     }
-
 }

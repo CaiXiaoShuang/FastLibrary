@@ -6,22 +6,58 @@ package com.intelligence.androidapplication.ui.main.model;
  */
 
 public class MainModel {
-    private String name;
-    private String nameNo;
+    private boolean exception;
+    private String generateno;
+    private String primarykey;
+    private boolean timeout;
+    private String url;
+    private String ds;
 
-    public String getName() {
-        return name;
+    public boolean isException() {
+        return exception;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setException(boolean exception) {
+        this.exception = exception;
     }
 
-    public String getNameNo() {
-        return nameNo;
+    public String getGenerateno() {
+        return generateno;
     }
 
-    public void setNameNo(String nameNo) {
-        this.nameNo = nameNo;
+    public void setGenerateno(String generateno) {
+        this.generateno = generateno;
+    }
+
+    public String getPrimarykey() {
+        return primarykey;
+    }
+
+    public void setPrimarykey(String primarykey) {
+        this.primarykey = primarykey;
+    }
+
+    public boolean isTimeout() {
+        return timeout;
+    }
+
+    public void setTimeout(boolean timeout) {
+        this.timeout = timeout;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getDs() {
+        return ds;
+    }
+
+    public void setDs(String ds) {
+        this.ds = ds;
     }
 }

@@ -70,7 +70,7 @@ public class BaseActivity extends AppCompatActivity{
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.unbind(this);
+        ButterKnife.bind(this);
         //结束Activity&从栈中移除该Activity
         activityManagerUtil.popOneActivity(this);
         onUnsubscribe();
